@@ -1,43 +1,46 @@
 /*
 Universidade Presbiteriana Mackenzie
-Curso de Ciência da Computação - Turma 04N
+Curso de Ciï¿½ncia da Computaï¿½ï¿½o - Turma 04N
 Estrutura de Dados II - Professor Jean
 
 Grupo:
 Diego Guedes de Moraes - 32148127
-Erick Cauã Ferreira Gomes - 32116251
+Erick Cauï¿½ Ferreira Gomes - 32116251
 Laura Carolina Balbachan dos Santos - 32173008
 Pedro Moreno Campos - 32172656
 */
 
 /*
 Escreva um programa em C++ que declare explicitamente um vetor (array) A
-de tamanho 5 do tipo double. Preencha seu conteúdo na declaração usando o
-{,,…,}. Depois, crie uma função com um argumento do tipo ponteiro para
+de tamanho 5 do tipo double. Preencha seu conteï¿½do na declaraï¿½ï¿½o usando o
+{,,ï¿½,}. Depois, crie uma funï¿½ï¿½o com um argumento do tipo ponteiro para
 double e um outro do tipo int. O primeiro argumento deve corresponder a um
-array e o segundo ao número de elementos do array. A função tem de ser do
-tipo ponteiro para double para devolver o endereço do menor elemento
-presente no array recebido. A função deve ser chamada no main e o retorno
-(endereço) impresso pelo programa.
+array e o segundo ao nï¿½mero de elementos do array. A funï¿½ï¿½o tem de ser do
+tipo ponteiro para double para devolver o endereï¿½o do menor elemento
+presente no array recebido. A funï¿½ï¿½o deve ser chamada no main e o retorno
+(endereï¿½o) impresso pelo programa.
 */
 
 #include <iostream>
 using namespace std;
 
 double * menor(double * array, int range){
-	double menorElemento;
+	double * menorElemento;
 	for(int i=0; i<range; i++){
 		for(int j=0; j<range; j++){
-			if (array[j] < array[i]){
-				menorElemento = array[j];
+			if (array[j] <= array[i]){
+				menorElemento = &array[j];
 			}	
 		}
 	}
-	return &menorElemento;
+
+	return menorElemento;
 }
 
 int main(){
-	menor(double A[5] = {,,,,}, int 5);
+	double A[5] = {5.00, 24.92 , 48.99 , 3.22 , 18.23};
+	int B = 5;
+	cout <<"\nEndereÃ§o do menor elemento do vetor:\n"<< menor(A, B) << endl;
 }
 
 
