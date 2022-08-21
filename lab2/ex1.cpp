@@ -24,23 +24,37 @@ presente no array recebido. A fun��o deve ser chamada no main e o retorno
 #include <iostream>
 using namespace std;
 
-double * menor(double * array, int range){
+double * menorEndereco(double * array, int range){
 	double * menorElemento;
 	for(int i=0; i<range; i++){
 		for(int j=0; j<range; j++){
-			if (array[j] <= array[i]){
+			if (array[j] < array[i]){
 				menorElemento = &array[j];
 			}	
 		}
 	}
+	return menorElemento;
+}
 
+double menorValor(double * array, int range){
+	double menorElemento;
+	for(int i=0; i<range; i++){
+		for(int j=0; j<range; j++){
+			if (array[j] < array[i]){
+				menorElemento = array[j];
+			}	
+		}
+	}
 	return menorElemento;
 }
 
 int main(){
-	double A[5] = {5.00, 24.92 , 48.99 , 3.22 , 18.23};
-	int B = 5;
-	cout <<"\nEndereço do menor elemento do vetor:\n"<< menor(A, B) << endl;
+	double array[5] = {5.00, 24.92 , 48.99 , 3.22 , 88.23};
+	int range = 5;
+	cout <<"\nEndereço do menor elemento do vetor:\n"<< menorEndereco(array, range) << endl;
+	cout <<"\nValor do menor elemento do vetor:\n"<< menorValor(array, range) << endl;
+
+	return 0;
 }
 
 

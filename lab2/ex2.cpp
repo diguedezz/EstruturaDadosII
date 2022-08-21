@@ -1,17 +1,61 @@
 /*
 Universidade Presbiteriana Mackenzie
-Curso de Ciência da Computação - Turma 04N
+Curso de Ciï¿½ncia da Computaï¿½ï¿½o - Turma 04N
 Estrutura de Dados II - Professor Jean
 
 Grupo:
 Diego Guedes de Moraes - 32148127
-Erick Cauã Ferreira Gomes - 32116251
+Erick Cauï¿½ Ferreira Gomes - 32116251
 Laura Carolina Balbachan dos Santos - 32173008
 Pedro Moreno Campos - 32172656
 */
 
 /*
 Modifique o programa anterior para que o vetor seja alocado dinamicamente usando o commando new;
-Peça ao usuário que digite o tamanho do vetor que será criado;
-Depois, peça ao usuário que entre com os valores que preencherão o vetor.
+Peï¿½a ao usuï¿½rio que digite o tamanho do vetor que serï¿½ criado;
+Depois, peï¿½a ao usuï¿½rio que entre com os valores que preencherï¿½o o vetor.
 */
+
+#include <iostream>
+using namespace std;
+
+double * menorEndereco(double * array, int range){
+	double * menorElemento;
+	for(int i=0; i<range; i++){
+		for(int j=0; j<range; j++){
+			if (array[j] < array[i]){
+				menorElemento = &array[j];
+			}	
+		}
+	}
+	return menorElemento;
+}
+
+double menorValor(double * array, int range){
+	double menorElemento;
+	for(int i=0; i<range; i++){
+		for(int j=0; j<range; j++){
+			if (array[j] < array[i]){
+				menorElemento = array[j];
+			}	
+		}
+	}
+	return menorElemento;
+}
+
+int main(){
+    int range;
+	cout <<"\nInsira o tamanho do vetor:\n"<<endl;
+    cin >> range;
+
+    double * array = new double[range];
+    for(int i=0; i<range; i++){
+        cout << "Insira o elemento "<<i<<endl;
+        cin >> array[i];
+    }
+	cout <<"\n\nEndereÃ§o do menor elemento do vetor:\n"<< menorEndereco(array, range) << endl;
+	cout <<"\nValor do menor elemento do vetor:\n"<< menorValor(array, range) << endl;
+
+	delete array;
+	return 0;
+}
