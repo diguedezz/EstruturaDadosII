@@ -1,11 +1,11 @@
 /*
-	Implementaï¿½ï¿½o de Classe baseando-se nos exemplos do livro "Introduction to algorithms" por Cormen.
-	Representaï¿½ï¿½o do tipo abstrato de dado: ï¿½rvore de busca binï¿½ria
+	Implementa??o de Classe baseando-se nos exemplos do livro "Introduction to algorithms" por Cormen.
+	Representa??o do tipo abstrato de dado: ?rvore de busca bin?ria
 
-	Cï¿½digo escrito por Diego Guedes, aluno do 4ï¿½ perï¿½odo de Estrutura de Dados II,
-	do curso Ciï¿½ncia da Computaï¿½ï¿½o da Universidade Presbiteriana Mackenzie.
+	C?digo escrito por Diego Guedes, aluno do 4? per?odo de Estrutura de Dados II,
+	do curso Ci?ncia da Computa??o da Universidade Presbiteriana Mackenzie.
 
-	Terï¿½a-Feira, 16 de agosto de 2022, 03:55 da manhï¿½.
+	Ter?a-Feira, 16 de agosto de 2022, 03:55 da manh?.
 
 */
 
@@ -113,7 +113,7 @@ public:
 	{
 		if (node == nullptr)
 		{
-			cout << "\nNÃ£o foi achado!";
+			cout << "\nNão foi achado!";
 			return node;
 		}
 		if (key == node->getKey())
@@ -158,34 +158,19 @@ public:
 		}
 	}
 
-	// qdeNos()
-	int nodeCounter(Node *node)
-	{
-		if (node != nullptr)
-		{
-			return 1 + nodeCounter(node->getLeft()) + nodeCounter(node->getRight());
-		}
-		else
-		{
-			return 0;
-		}
-	}
-
 	// alturaBST()
-	int treeHeight()
+	int treeHeight(Node *node)
 	{
-		Node *node = this->source;
-
 		if (node == nullptr)
 			return -1;
 		else
 		{
-			int esq = treeHeight();
-			int dir = treeHeight();
-			if (esq > dir)
-				return esq + 1;
+			int left = treeHeight(node->getLeft());
+			int right = treeHeight(node->getRight());
+			if (left > right)
+				return left + 1;
 			else
-				return dir + 1;
+				return right + 1;
 		}
 	}
 
@@ -229,7 +214,7 @@ public:
 		Node *node;
 		node = iterativeSearch(this->source, key);
 
-		if (node->getLeft() == nullptr && node->getRight() == nullptr) // Ã© uma folha
+		if (node->getLeft() == nullptr && node->getRight() == nullptr) // é uma folha
 		{
 			delete node;
 			node = nullptr;
@@ -238,7 +223,7 @@ public:
 		}
 		else
 		{
-			cout << "\nNÃ£o Ã© uma folha";
+			cout << "\nNão é uma folha";
 			return node;
 		}
 	}
